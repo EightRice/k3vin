@@ -1,0 +1,56 @@
+{
+  "bots": {
+    "kevin": {
+      "description": "Main K3V|N bot",
+      "app_id": "984847512387080243",
+      "public_key": "8ec2dd34e37662b2cec1a244c22e01c24c77efe5da0920ad27734ed0d35751e7",
+      "bot_username": "K3V|N#0060",
+      "token_env_var": "DISCORD_BOT_TOKEN",
+      "developer_account": "primary",
+      "intents": {
+        "presence": true,
+        "server_members": true,
+        "message_content": true
+      },
+      "notes": ""
+    },
+    "bot2": {
+      "description": "Description here",
+      "app_id": "",
+      "public_key": "",
+      "bot_username": "",
+      "token_env_var": "DISCORD_BOT_TOKEN_2",
+      "developer_account": "secondary",
+      "intents": {
+        "presence": false,
+        "server_members": false,
+        "message_content": false
+      },
+      "notes": ""
+    },
+    "bot3": {
+      "description": "Description here",
+      "app_id": "",
+      "public_key": "",
+      "bot_username": "",
+      "token_env_var": "DISCORD_BOT_TOKEN_3",
+      "developer_account": "secondary",
+      "intents": {
+        "presence": false,
+        "server_members": false,
+        "message_content": false
+      },
+      "notes": ""
+    }
+  },
+  "developer_accounts": {
+    "primary": {
+      "description": "Main account",
+      "email_hint": ""
+    },
+    "secondary": {
+      "description": "Secondary account",
+      "email_hint": ""
+    }
+  }
+}

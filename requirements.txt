@@ -1,0 +1,22 @@
+# Discord
+discord.py>=2.3.0
+
+# Firebase/Firestore
+firebase-admin>=6.0.0
+google-cloud-firestore>=2.11.0
+
+# HTTP
+aiohttp>=3.9.0
+
+# Environment
+python-dotenv>=1.0.0
+
+# Hackathon API
+fastapi>=0.110
+uvicorn>=0.27
+pydantic>=2.0
+
+# Google Sheets sync
+google-auth>=2.0.0
+google-auth-oauthlib>=1.0.0
+google-api-python-client>=2.0.0

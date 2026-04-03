@@ -1,0 +1,62 @@
+{
+  "bots": {
+    "kevin": {
+      "description": "Main K3V|N bot - primary instance",
+      "app_id": "984847512387080243",
+      "public_key": "8ec2dd34e37662b2cec1a244c22e01c24c77efe5da0920ad27734ed0d35751e7",
+      "bot_username": "K3V|N#0060",
+      "token_env_var": "DISCORD_BOT_TOKEN",
+      "developer_account": "primary",
+      "intents": {
+        "presence": true,
+        "server_members": true,
+        "message_content": true
+      },
+      "oauth2_code_grant": false,
+      "public_bot": true,
+      "notes": "Currently active instance"
+    },
+    "auto": {
+      "description": "Auto bot - secondary account",
+      "app_id": "689927735715430534",
+      "public_key": "034bb72b3b79361f798b98ad1949ef4a30feead9bac66839dde88f0fa5004456",
+      "bot_username": "auto#1967",
+      "token_env_var": "DISCORD_BOT_TOKEN_AUTO",
+      "developer_account": "secondary",
+      "intents": {
+        "presence": true,
+        "server_members": true,
+        "message_content": true
+      },
+      "oauth2_code_grant": false,
+      "public_bot": true,
+      "notes": ""
+    },
+    "tuna": {
+      "description": "NameThatTuna bot - secondary account",
+      "app_id": "919695698016997426",
+      "public_key": "434fed2dbfcfef4eb102b51625390a103030dd93893da73f4f7153683a90bfba",
+      "bot_username": "NameThatTuna#2503",
+      "token_env_var": "DISCORD_BOT_TOKEN_TUNA",
+      "developer_account": "secondary",
+      "intents": {
+        "presence": true,
+        "server_members": true,
+        "message_content": true
+      },
+      "oauth2_code_grant": false,
+      "public_bot": true,
+      "notes": ""
+    }
+  },
+  "developer_accounts": {
+    "primary": {
+      "description": "Primary developer account",
+      "email_hint": ""
+    },
+    "secondary": {
+      "description": "Secondary developer account",
+      "email_hint": ""
+    }
+  }
+}
