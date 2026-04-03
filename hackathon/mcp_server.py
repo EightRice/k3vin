@@ -25,7 +25,7 @@ MCP client configuration (e.g. claude_desktop_config.json):
           "command": "python",
           "args": ["C:/path/to/mcp_server.py"],
           "env": {
-            "HACKATHON_API_URL": "https://hackathon.dorg.tech",
+            "HACKATHON_API_URL": "http://13.48.23.15",
             "HACKATHON_API_TOKEN": "your-agent-token-here"
           }
         }
