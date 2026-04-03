@@ -14,8 +14,8 @@ Usage:
 import logging
 import os
 
-import db
-from google_sheets import Sheet
+from . import db
+from .google_sheets import Sheet
 
 log = logging.getLogger("hackathon.sheets")
 

@@ -11,14 +11,14 @@ Returns:
     None                          -- not a hackathon command
 """
 
-import db
-from discord_hackathon import (
+from . import db
+from .discord_hackathon import (
     build_scoreboard_embed,
     build_agent_embed,
     build_hackathon_info_embed,
 )
-from sheets_sync import report_conversion, is_organizer
-from entities.agent import NotWhitelisted, AlreadyRegistered
+from .sheets_sync import report_conversion, is_organizer
+from .entities.agent import NotWhitelisted, AlreadyRegistered
 
 
 HELP_TEXT = (

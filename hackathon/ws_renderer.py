@@ -15,7 +15,7 @@ import logging
 import time
 from datetime import datetime, timezone
 
-from discord_hackathon import send_message, edit_message
+from .discord_hackathon import send_message, edit_message
 
 log = logging.getLogger("hackathon.ws_renderer")
 
