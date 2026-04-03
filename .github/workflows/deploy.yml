@@ -1,0 +1,56 @@
+name: Deploy K3V|N to EC2
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+env:
+  EC2_HOST: ec2-13-48-23-15.eu-north-1.compute.amazonaws.com
+  EC2_USER: ubuntu
+  DEPLOY_PATH: /home/ubuntu/k3vin
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install ruff
+      - run: ruff check .
+
+  deploy:
+    needs: lint
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
+          chmod 600 ~/.ssh/ec2.pem
+          ssh-keyscan -H ${{ env.EC2_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Sync files to EC2
+        run: |
+          rsync -avz --delete \
+            --exclude '.git' \
+            --exclude '__pycache__' \
+            --exclude '*.pyc' \
+            --exclude '.env' \
+            --exclude '*.db' \
+            --exclude 'dumps/' \
+            -e "ssh -i ~/.ssh/ec2.pem" \
+            ./ ${{ env.EC2_USER }}@${{ env.EC2_HOST }}:${{ env.DEPLOY_PATH }}/
+
+      - name: Install dependencies and restart service
+        run: |
+          ssh -i ~/.ssh/ec2.pem ${{ env.EC2_USER }}@${{ env.EC2_HOST }} << 'ENDSSH'
+            cd /home/ubuntu/k3vin
+            pip install -r requirements.txt --quiet
+            sudo systemctl restart k3vin
+          ENDSSH
