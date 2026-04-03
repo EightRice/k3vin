@@ -151,7 +151,7 @@ You need support access to ask questions. Contact an admin."""
                 return f"Insufficient credits. You have {user.credits:.1f}, need {credit_cost:.1f}."
 
             # Deduct credits
-            await self.users.deduct_credits(user_id, credit_cost, reason=f"support question")
+            await self.users.deduct_credits(user_id, credit_cost, reason="support question")
 
         # Increment usage
         usage_count = await self.users.increment_usage(user_id, SERVICE_ID)

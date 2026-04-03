@@ -1,0 +1,10 @@
+[lint]
+# Ignore common issues in the existing codebase.
+# We'll tighten these as we clean up.
+ignore = [
+    "F401",   # unused imports (many re-exports in copied code)
+    "E741",   # ambiguous variable names (l, O, I)
+    "E402",   # module-level import not at top (load_dotenv() must run first)
+    "F821",   # undefined name (forward-ref strings in type hints)
+    "F841",   # local variable assigned but never used (some intentional)
+]

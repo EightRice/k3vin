@@ -157,7 +157,7 @@ def _cmd_leads(args: str) -> dict:
 
     header = f"**{agent.name}** -- {len(leads)} lead(s)"
     if len(leads) > 20:
-        header += f" (showing first 20)"
+        header += " (showing first 20)"
 
     return {"content": f"{header}\n" + "\n".join(lines)}
 
