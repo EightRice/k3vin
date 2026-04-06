@@ -44,6 +44,8 @@ jobs:
             --exclude '.env' \
             --exclude '*.db' \
             --exclude 'dumps/' \
+            --exclude 'venv/' \
+            --exclude 'bots.json' \
             -e "ssh -i ~/.ssh/ec2.pem" \
             ./ ${{ env.EC2_USER }}@${{ env.EC2_HOST }}:${{ env.DEPLOY_PATH }}/
 
@@ -51,6 +53,6 @@ jobs:
         run: |
           ssh -i ~/.ssh/ec2.pem ${{ env.EC2_USER }}@${{ env.EC2_HOST }} << 'ENDSSH'
             cd /home/ubuntu/k3vin
-            pip install -r requirements.txt --quiet
+            venv/bin/pip install -r requirements.txt --quiet
             sudo systemctl restart k3vin
           ENDSSH
