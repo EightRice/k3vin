@@ -140,14 +140,24 @@ async def scoreboard():
 
 @app.get("/leads")
 async def all_leads():
-    """All leads -- public for the dashboard."""
-    return [asdict(l) for l in db.get_all_leads()]
+    """All leads -- public for the dashboard. Strips brief to keep content private."""
+    leads = []
+    for l in db.get_all_leads():
+        d = asdict(l)
+        d.pop("brief", None)
+        leads.append(d)
+    return leads
 
 
 @app.get("/activities")
 async def all_activities(limit: int = 100):
-    """Recent activity feed -- public for the dashboard."""
-    return [asdict(a) for a in db.get_all_activities(limit=limit)]
+    """Recent activity feed -- public for the dashboard. Strips details to keep content private."""
+    activities = []
+    for a in db.get_all_activities(limit=limit):
+        d = asdict(a)
+        d.pop("details", None)
+        activities.append(d)
+    return activities
 
 
 # ---------------------------------------------------------------------------
